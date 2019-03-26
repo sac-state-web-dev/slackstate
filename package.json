@@ -1,0 +1,19 @@
+{
+  "name": "slackstate",
+  "version": "1.0.0",
+  "main": "bot.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/anthropomorphic/slackstate.git"
+  },
+  "author": "Michael Dorst",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/anthropomorphic/slackstate/issues"
+  },
+  "homepage": "https://github.com/anthropomorphic/slackstate#readme",
+  "dependencies": {
+    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
+    "winston": "^3.2.1"
+  }
+}
