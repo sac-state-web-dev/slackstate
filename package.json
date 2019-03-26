@@ -9,7 +9,7 @@
   "author": "Michael Dorst",
   "license": "ISC",
   "scripts": {
-    "start": "nodemon bot.js"
+    "start": "node bot.js"
   },
   "bugs": {
     "url": "https://github.com/anthropomorphic/slackstate/issues"
