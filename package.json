@@ -13,7 +13,6 @@
   },
   "homepage": "https://github.com/anthropomorphic/slackstate#readme",
   "dependencies": {
-    "discord.io": "https://github.com/woor/discord.io/tarball/gateway_v6",
-    "winston": "^3.2.1"
+    "discord.js": "^11.4.2"
   }
 }
