@@ -7,7 +7,15 @@ Please feel free to contribute whatever silly (or serious) features you want.
 
 _If you get stuck, feel free to ask `@white_jeezus#7233` for help._
 
-You will need to have node.js installed.
+# Adding the bot to your server
+
+If you would like to add the official `SlackState` bot to your server, click
+[here][SlackState], select your server from the dropdown, and click `Authorize`.
+
+There is only one "official" `SlackState` bot, but you can create your own. The
+official bot is hosted on [Heroku]. If you want to host your own version, follow
+the steps below to create a Discord bot, and link your server to that bot. Note
+that you can call your bot whatever you want.
 
 # Installing node.js
 
@@ -139,7 +147,15 @@ To run your project with `nodemon`:
 $ nodemon
 ```
 
+# Hosting
+
+This bot is currently hosted on [Heroku]. When you push code to GitHub, Heroku
+will automatically pull your code, and the official [SlackState] bot will update
+to your new version.
+
 [discord-developer-portal]: https://discordapp.com/developers/applications/
 
 [homebrew]: https://brew.sh/
 [nodejs]: https://nodejs.org/en/
+[Heroku]: https://heroku.com/
+[SlackState]: https://discordapp.com/api/oauth2/authorize?client_id=559997859718627328&permissions=2048&scope=bot
