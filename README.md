@@ -3,7 +3,9 @@
 The purpose of this bot is to mess around, have fun, and learn how to do web
 stuff.
 
-Please feel free to contribute whatever silly features you want.
+Please feel free to contribute whatever silly (or serious) features you want.
+
+_If you get stuck, feel free to ask `@white_jeezus#7233` for help._
 
 You will need to have node.js installed.
 
@@ -26,18 +28,27 @@ $ brew install node
 
 ## Windows
 
-[Install node][nodejs]
+[Install node][nodejs] (This also works for MacOS if you don't want to use
+homebrew).
 
 ## Linux
 
 ### Arch
+
 ```
-pacman -S nodejs npm
+$ pacman -S nodejs npm
 ```
 
 ### Debian (including Ubuntu)
+
 ```
-$ apt install nodejs
+$ sudo apt install nodejs
+```
+
+### Fedora (RedHat, CentOS, OpenSUSE)
+
+```
+$ sudo yum install nodejs
 ```
 
 # Setting up a Discord bot
@@ -56,9 +67,11 @@ To create your own bot for development, go to
 You can call it whatever you want, and click `Create`.
 
 Then go to `Bot` on the left
+
 ![Clicking Bot](screenshots/click-bot-sidebar.png)
 
 Click `Add Bot`
+
 ![Clicking Add Bot](screenshots/click-add-bot.png)
 
 And click `Yes, do it!`
@@ -71,7 +84,8 @@ Scroll down and click `bot`
 
 ![Clicking Bot](screenshots/click-bot.png)
 
-Scroll further and click `Send Messages`
+Scroll further and click `Send Messages` (depending on what changes you want to
+make, you might want to enable more privelidges).
 
 ![Clicking Send Messages](screenshots/click-send-messages.png)
 
