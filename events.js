@@ -28,4 +28,16 @@ client.on('message', msg =>
     {
         bot.emit('lit', msg)
     }
+
+    if (msg.isMentioned(client.user))
+    {
+        if (msg.words[1].match(/^mute$/gi))
+        {
+            bot.emit('mute', msg)
+        }
+        else if (msg.words[1].match(/unmute/i))
+        {
+            bot.emit('unmute', msg)
+        }
+    }
 })

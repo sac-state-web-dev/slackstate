@@ -6,26 +6,46 @@ client.on('ready', () => {
 
 bot.on('ping', msg =>
 {
-    msg.channel.send('Pong!')
+    if (!muted) msg.channel.send('Pong!')
 })
 
 bot.on('google', msg =>
 {
-    let lmgtfy = 'https://lmgtfy.com/?q='
-
-    msg.words.slice(1, -1).forEach(term =>
+    if (!muted)
     {
-        lmgtfy += `${term}+`
-    })
+        let lmgtfy = 'https://lmgtfy.com/?q='
 
-    lmgtfy += msg.words[msg.words.length - 1]
+        msg.words.slice(1, -1).forEach(term =>
+        {
+            lmgtfy += `${term}+`
+        })
 
-    msg.channel.send(lmgtfy)
+        lmgtfy += msg.words[msg.words.length - 1]
+
+        msg.channel.send(lmgtfy)
+    }
 })
 
 bot.on('lit', msg =>
 {
-    msg.channel.send('🔥🔥🔥')
+    if (!muted) msg.channel.send('🔥🔥🔥')
+})
+
+let muted = false
+
+bot.on('mute', msg =>
+{
+    if (!muted)
+    {
+        muted = true
+        msg.channel.send('🙊🤐')
+    }
+})
+
+bot.on('unmute', msg =>
+{
+    muted = false
+    msg.channel.send('🗣️🎙️')
 })
 
 client.login(process.env.BOT_TOKEN)
