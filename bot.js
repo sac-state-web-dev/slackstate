@@ -1,5 +1,7 @@
 const { bot, client } = require('./events.js')
 
+const cow = require('cowsay')
+
 client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`)
 })
@@ -46,6 +48,14 @@ bot.on('unmute', msg =>
 {
     muted = false
     msg.channel.send('🗣️🎙️')
+})
+
+bot.on('cowsay', msg =>
+{
+    msg.channel.send(
+        "```\n" +
+        cow.say({ text: msg.words.slice(1).join() }) +
+        "```")
 })
 
 client.login(process.env.BOT_TOKEN)
