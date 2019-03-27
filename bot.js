@@ -1,41 +1,31 @@
-const Discord = require('discord.js')
-const client = new Discord.Client()
-const fs = require('fs')
-require('dotenv').config()
+const { bot, client } = require('./events.js')
 
-client.on('ready', () =>
-{
+client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`)
 })
 
-client.on('message', m =>
+bot.on('ping', msg =>
 {
-    // Split the message on whitespace, then remove the whitespace tokens
-    const msg = m.content.split(/(\s+)/).filter( e => e.trim().length > 0)
+    msg.channel.send('Pong!')
+})
 
-    if (msg[0].match(/ping[^a-zA-Z\d]*/i))
+bot.on('google', msg =>
+{
+    let lmgtfy = 'https://lmgtfy.com/?q='
+
+    msg.words.slice(1, -1).forEach(term =>
     {
-        m.reply('Pong!')
-    }
+        lmgtfy += `${term}+`
+    })
 
-    if (msg[0].match(/google/i))
-    {
-        let lmgtfy = 'https://lmgtfy.com/?q='
-        
-        msg.slice(1, -1).forEach(term =>
-            {
-                lmgtfy += `${term}+`
-            })
+    lmgtfy += msg.words[msg.words.length - 1]
 
-        lmgtfy += msg[msg.length-1]
+    msg.channel.send(lmgtfy)
+})
 
-        m.reply(lmgtfy)
-    }
-
-    if (msg[0].match(/lit[^a-zA-Z\d]*/i))
-    {
-        m.channel.send('🔥🔥🔥');
-    }
+bot.on('lit', msg =>
+{
+    msg.channel.send('🔥🔥🔥')
 })
 
 client.login(process.env.BOT_TOKEN)
