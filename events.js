@@ -8,11 +8,15 @@ const bot = new EventEmitter()
 
 module.exports = { bot, client }
 
+let previous_message = null
+
 client.on('message', msg =>
 {
     // Split the message on whitespace, then remove the whitespace tokens
     // Store it in `msg.words` so it will be passed to the listener
     msg.words = msg.content.split(/(\s+)/).filter(e => e.trim().length > 0)
+
+    msg.previous = previous_message
 
     if (msg.words[0].match(/^ping[^a-zA-Z\d]*$/i))
     {
@@ -45,4 +49,6 @@ client.on('message', msg =>
     {
         bot.emit('cowsay', msg)
     }
+
+    previous_message = msg
 })

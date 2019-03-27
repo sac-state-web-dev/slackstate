@@ -52,10 +52,23 @@ bot.on('unmute', msg =>
 
 bot.on('cowsay', msg =>
 {
+    let cow_message = 'moo'
+    if (msg.words.length < 2)
+    {
+        if (msg.previous != null)
+        {
+            cow_message = msg.previous.content
+        }
+    }
+    else
+    {
+        cow_message = msg.words.slice(1).join()
+    }
+    
     msg.channel.send(
         "```\n" +
-        cow.say({ text: msg.words.slice(1).join() }) +
-        "```")
+        cow.say({ text: cow_message }) +
+        "\n```")
 })
 
 client.login(process.env.BOT_TOKEN)
