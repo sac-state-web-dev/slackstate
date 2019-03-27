@@ -113,9 +113,13 @@ copy it.
 
 ![Copying token](screenshots/copy-token.png)
 
-You will need to create a file called `tokenfile` (no extension) in the root of
-the project. That file will be ignored by git, and will stay private to you.
-Paste your bot's token into `tokenfile`.
+The server looks for the `BOT_TOKEN` environment variable to be set. The easiest
+way to set this for this project is to create a file called `.env`, and add the
+following:
+
+```
+BOT_TOKEN='<your token>'
+```
 
 # Running your bot
 
