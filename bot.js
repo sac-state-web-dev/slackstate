@@ -62,7 +62,7 @@ bot.on('cowsay', msg =>
     }
     else
     {
-        cow_message = msg.words.slice(1).join()
+        cow_message = msg.words.slice(1).join(' ')
     }
     
     msg.channel.send(
