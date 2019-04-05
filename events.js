@@ -50,5 +50,11 @@ client.on('message', msg =>
         bot.emit('cowsay', msg)
     }
 
+    if (msg.words[0].match(/^hello$/i) &&
+        msg.words[1].match(/^there[^ a - zA - Z\d]*$/i))
+    {
+        bot.emit('hello there', msg)
+    }
+
     previous_message = msg
 })

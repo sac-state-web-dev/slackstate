@@ -71,4 +71,9 @@ bot.on('cowsay', msg =>
         "\n```")
 })
 
+bot.on('hello there', msg =>
+{
+    msg.channel.send('General Kenobi!')
+})
+
 client.login(process.env.BOT_TOKEN)
