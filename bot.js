@@ -43,7 +43,7 @@ bot.on('mute', msg =>
 
 bot.on('unmute', msg =>
 {
-    muted = false
+    bot.muted = false
     msg.channel.send('🗣️🎙️')
 })
 
