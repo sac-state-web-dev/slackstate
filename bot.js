@@ -8,14 +8,12 @@ client.on('ready', () => {
 
 bot.on('ping', msg =>
 {
-    if (!muted) msg.channel.send('Pong!')
+    msg.channel.send('Pong!')
 })
 
 bot.on('google', msg =>
 {
-    if (!muted)
-    {
-        let lmgtfy = 'https://lmgtfy.com/?q='
+    let lmgtfy = 'https://lmgtfy.com/?q='
 
         msg.words.slice(1, -1).forEach(term =>
         {
@@ -25,21 +23,20 @@ bot.on('google', msg =>
         lmgtfy += msg.words[msg.words.length - 1]
 
         msg.channel.send(lmgtfy)
-    }
 })
 
 bot.on('lit', msg =>
 {
-    if (!muted) msg.channel.send('🔥🔥🔥')
+    msg.channel.send('🔥🔥🔥')
 })
 
 let muted = false
 
 bot.on('mute', msg =>
 {
-    if (!muted)
+    if (!bot.muted)
     {
-        muted = true
+        bot.muted = true
         msg.channel.send('🙊🤐')
     }
 })

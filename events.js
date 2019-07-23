@@ -18,21 +18,6 @@ client.on('message', msg =>
 
     msg.previous = previous_message
 
-    if (msg.words[0].match(/^ping[^a-zA-Z\d]*$/i))
-    {
-        bot.emit('ping', msg)
-    }
-
-    if (msg.words[0].match(/^google$/i))
-    {
-        bot.emit('google', msg)
-    }
-
-    if (msg.words[0].match(/^lit[^a-zA-Z\d]*$/i))
-    {
-        bot.emit('lit', msg)
-    }
-
     if (msg.isMentioned(client.user))
     {
         if (msg.words[1].match(/^mute$/i))
@@ -45,16 +30,35 @@ client.on('message', msg =>
         }
     }
 
-    if (msg.words[0].match(/^cowsay$/i))
+    if (!bot.muted)
     {
-        bot.emit('cowsay', msg)
-    }
+        if (msg.words[0].match(/^ping[^a-zA-Z\d]*$/i))
+        {
+            bot.emit('ping', msg)
+        }
 
-    if (msg.words[0].match(/^hello$/i) && msg.words[1] &&
-        msg.words[1].match(/^there[^ a - zA - Z\d]*$/i))
-    {
-        bot.emit('hello there', msg)
-    }
+        if (msg.words[0].match(/^google$/i))
+        {
+            bot.emit('google', msg)
+        }
 
+        if (msg.words[0].match(/^lit[^a-zA-Z\d]*$/i))
+        {
+            bot.emit('lit', msg)
+        }
+
+        
+
+        if (msg.words[0].match(/^cowsay$/i))
+        {
+            bot.emit('cowsay', msg)
+        }
+
+        if (msg.words[0].match(/^hello$/i) && msg.words[1] &&
+            msg.words[1].match(/^there[^ a - zA - Z\d]*$/i))
+        {
+            bot.emit('hello there', msg)
+        }
+    }
     previous_message = msg
 })
